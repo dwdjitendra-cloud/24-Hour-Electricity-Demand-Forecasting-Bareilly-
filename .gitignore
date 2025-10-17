@@ -17,7 +17,17 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Artifacts and reports
+# Generated outputs
+artifacts/
+reports/
+results/
+*.csv
+*.pdf
+*.png
+
+# Keep data directory structure but ignore contents
+data/*
+!data/.gitkeep
 artifacts/
 reports/
 results/

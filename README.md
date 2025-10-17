@@ -9,33 +9,53 @@ Features:
 - Two complementary models with automated hyperparameter selection
 - Professional reporting with key metrics and visualizations
 
+## Quick Start
+
+1. Clone the repository:
+```powershell
+git clone https://github.com/dwdjitendra-cloud/24-Hour-Electricity-Demand-Forecasting-Bareilly-.git
+cd 24-Hour-Electricity-Demand-Forecasting-Bareilly-
+```
+
+2. Create/activate a Python 3.10+ environment
+
+3. Install dependencies:
+```powershell
+pip install -r requirements.txt
+```
+
+4. Download and prepare data:
+   - Download `SM Cleaned Data BR Aggregated.csv` from the [v1.0-data release](https://github.com/dwdjitendra-cloud/24-Hour-Electricity-Demand-Forecasting-Bareilly-/releases/tag/v1.0-data)
+   - Create a `data` directory in the project root if it doesn't exist
+   - Place the downloaded file in the `data/` directory
+
 ## Project Structure
 
 fast-track-electricity-forecast/
-- data/
-  - SM Cleaned Data BR Aggregated.csv
-- src/
-  - preprocess.py — Load, clean, resample, handle gaps & outliers
-  - features.py — Create lag features, sin/cos, day-of-week, rolling stats
-  - model_baseline.py — Seasonal naive baseline
-  - model_ridge.py — Ridge regression with recursive multi-step
-  - metrics.py — MAE, WAPE/WMAPE, sMAPE
-  - plots.py — Overlay and horizon-wise MAE plots
-  - report.py — Auto-generate 2-page PDF report
-  - utils.py — Helpers for logging, IO, CLI parsing
-- artifacts/
-  - fast_track/
-    - forecast_T_plus_24.csv
-    - metrics.csv
-    - plots/
-      - forecast_overlay.png
-      - mae_by_horizon.png
-- reports/
-  - fast_track_report.pdf
-- run_forecast.py — CLI entrypoint
-- requirements.txt
-- README.md
-- .gitignore
+├── data/
+│   └── SM Cleaned Data BR Aggregated.csv
+├── src/
+│   ├── preprocess.py — Load, clean, resample, handle gaps & outliers
+│   ├── features.py — Create lag features, sin/cos, day-of-week, rolling stats
+│   ├── model_baseline.py — Seasonal naive baseline
+│   ├── model_ridge.py — Ridge regression with recursive multi-step
+│   ├── metrics.py — MAE, WAPE/WMAPE, sMAPE
+│   ├── plots.py — Overlay and horizon-wise MAE plots
+│   ├── report.py — Auto-generate 2-page PDF report
+│   └── utils.py — Helpers for logging, IO, CLI parsing
+├── artifacts/
+│   └── fast_track/
+│       ├── forecast_T_plus_24.csv
+│       ├── metrics.csv
+│       └── plots/
+│           ├── forecast_overlay.png
+│           └── mae_by_horizon.png
+├── reports/
+│   └── fast_track_report.pdf
+├── run_forecast.py — CLI entrypoint
+├── requirements.txt
+├── README.md
+└── .gitignore
 
 ## Install Dependencies
 
@@ -91,3 +111,8 @@ This performs a 30-day rolling backtest and saves detailed results under `result
 - `artifacts/fast_track/metrics.csv`: Backtest metrics (MAE, WAPE, sMAPE) for both models.
 - `artifacts/fast_track/plots/*.png`: Overlay and horizon-wise MAE plots.
 - `reports/fast_track_report.pdf`: Professional 2-page summary report.
+
+## Data Sources
+
+- **Dataset**: Smart-Meter Data from CEEW (Council on Energy, Environment and Water) - Contains daily electricity consumption readings from smart meters in Bareilly, India for the years 2020-2021.
+- **Weather Data**: [Open-Meteo API](https://open-meteo.com/) - Provides historical and forecast weather data (optional integration).
